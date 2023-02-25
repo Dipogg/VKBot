@@ -2,26 +2,15 @@ import vk_api
 from vk_api.longpoll import VkLongPoll, VkEventType
 from random import randrange
 import datetime
+from configuration_file import comm_token, user_dict
 
 
-comm_token = ''
 vk = vk_api.VkApi(token=comm_token)
 longpoll = VkLongPoll(vk)
 
 
-user_dict = {}
-
-
-def write_msg(user_id, message):
-    vk.method('messages.send', {'user_id': user_id, 'message': message,  'random_id': randrange(10 ** 7)})
-
-
-def get_token(user_id):
-    write_msg(user_id, f"Введите токен: ")
-    for event in longpoll.listen():
-        if event.type == VkEventType.MESSAGE_NEW and event.to_me:
-            token_get = event.text
-            return token_get
+def write_msg(user_id, message=None, attachment=None):
+    vk.method('messages.send', {'user_id': user_id, 'message': message, 'attachment': attachment, 'random_id': randrange(10 ** 7)})
 
 
 def get_user_info(user_id):

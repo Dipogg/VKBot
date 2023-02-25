@@ -1,0 +1,6 @@
+token = 'vk1.a.ygsmoP6FNztCWuCTGbnkW0PN1Wx0YoYcLNCtP4TJ0GFZbeXUgWHO5GhWP9n_Svge8wf4eG8g8gXLVirMnCP3ZmreAhDO1ej-P12QNDoadXWMPffxB4c1zEH2nwWhihOUktTb9tYCVpWuaQDzMguWBeeTLb54ZTxOTnVegE3d_gQ-hGf1MeBTVeST4n2_SeaxxFoOjryFDmYUc0rhHNqmbQ'
+comm_token = 'vk1.a.rcZ-aSPh_EzKQGRMGGioBm2v4bYaYGoRjplLwEiMO_zEIMelO-U3OC-xzxZpaioglDw7UtG9OxILi1Gwr3cgrqkv9p3EamLXVcrOaldJoVNUuF8WY_QBnVst000Sd24zfJWAhFJpOyI2MkDRw-iCpo3Wo7yih6U22suGBiiyglVAYpTd4mbR3_ZXhG_pUwJIRUerNAKXNDPq-m-0XVc6OA'
+
+offset = 0
+list_filtered_users = []
+user_dict = {}

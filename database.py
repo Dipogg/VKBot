@@ -16,7 +16,7 @@ def create_table_search_users():
         cursor.execute(
             """CREATE TABLE IF NOT EXISTS users(
                 id SERIAL PRIMARY KEY,
-                user_id_search VARCHAR(50) NOT NULL PRIMARY KEY;"""
+                user_id_search VARCHAR(50) NOT NULL;"""
         )
     print("[INFO] Table USERS was created.")
     return

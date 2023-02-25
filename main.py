@@ -3,9 +3,7 @@ from vk_api.longpoll import VkLongPoll, VkEventType
 import collecting_information
 import search_module
 import database
-
-
-offset = 0
+from configuration_file import list_filtered_users
 
 
 for event in collecting_information.longpoll.listen():
@@ -17,14 +15,14 @@ for event in collecting_information.longpoll.listen():
             if request.lower() == "привет":
                 collecting_information.write_msg(event.user_id, f"Хай, {event.user_id}. Для старта поиска введите 'поиск': ")
             elif request.lower() == "поиск":
-                token = collecting_information.get_token(event.user_id)
-                vk_token = vk_api.VkApi(token=token)
                 database.create_table_search_users()
                 user_dict = collecting_information.get_user_info(event.user_id)
-                search_module.search_users(event.user_id, vk_token, user_dict, offset)
+                search_module.search_users(event.user_id, user_dict, list_filtered_users)
             elif request.lower() == "далее":
-                offset += 1
-                search_module.search_users(event.user_id, vk_token, user_dict, offset)
+                if len(list_filtered_users) == 0:
+                    search_module.search_users(event.user_id, user_dict, list_filtered_users)
+                else:
+                    search_module.give_user(event.user_id, user_dict, list_filtered_users)
             elif request.lower() == "пока":
                 collecting_information.write_msg(event.user_id, "Пока((")
             else:
