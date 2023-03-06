@@ -32,7 +32,7 @@ def give_user(message_id, user_dict, list_filtered_users):
         first_name = user_take.get('first_name')
         last_name = user_take.get('last_name')
         vk_id = str(user_take.get('id'))
-        vk_link = f"vk.com/id{vk_id})"
+        vk_link = f"vk.com/id{vk_id}"
         insert_search_users(user_id_search=vk_id)
         photo_max_like = (get_photo_info(vk_id, message_id, user_dict, list_filtered_users))
         if len(photo_max_like) < 3:
